@@ -20,4 +20,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HolidaySearch\SearchLayer.csproj" />
+  </ItemGroup>
+
 </Project>
