@@ -10,15 +10,17 @@ namespace SearchLayer.Helper
 {
     public static class DataHelper
     {
-        public static async Task<List<Flight>> GetFlightData(string fileFullPath)
+        public static List<Flight> GetFlightData(string fileFullPath)
         {
+            fileFullPath += "\\FlightData.json";
             using FileStream openStream = File.OpenRead(fileFullPath);
-            return await JsonSerializer.DeserializeAsync<List<Flight>>(openStream);
+            return JsonSerializer.Deserialize<List<Flight>>(openStream);
         }
-        public static async Task<List<Hotel>> GetHotelData(string fileFullPath)
+        public static List<Hotel> GetHotelData(string fileFullPath)
         {
+            fileFullPath += "\\HotelData.json";
             using FileStream openStream = File.OpenRead(fileFullPath);
-            return await JsonSerializer.DeserializeAsync<List<Hotel>>(openStream);
+            return JsonSerializer.Deserialize<List<Hotel>>(openStream);
         }
     }
 }
