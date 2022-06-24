@@ -15,7 +15,7 @@ namespace SearchLayer
         }
         public List<SearchResult> Filter(SearchRequest requestModel)
         {
-            List<SearchResult> result=null;
+            List<SearchResult> result = new();
             if (!requestModel.IsValid())
                 return result;
 
