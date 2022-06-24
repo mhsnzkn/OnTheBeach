@@ -22,5 +22,19 @@ namespace SearchLayer.Helper
             using FileStream openStream = File.OpenRead(fileFullPath);
             return JsonSerializer.Deserialize<List<Hotel>>(openStream);
         }
+
+        public static List<SearchResult> JoinFlightHotelResults(IEnumerable<Flight> flights, IEnumerable<Hotel> hotels)
+        {
+            var result = new List<SearchResult>();
+            foreach (var flight in flights)
+            {
+                foreach (var hotel in hotels)
+                {
+                    result.Add(new SearchResult { Flight = flight, Hotel = hotel });
+                }
+            }
+
+            return result.OrderBy(x => x.TotalPrice).ToList();
+        }
     }
 }

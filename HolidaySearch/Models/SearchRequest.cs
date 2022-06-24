@@ -12,5 +12,14 @@ namespace SearchLayer.Models
         public string TravelingTo { get; set; }
         public DateTime DepartureDate { get; set; }
         public int Duration { get; set; }
+
+        public bool IsValid()
+        {
+            if (string.IsNullOrEmpty(this.TravelingTo) || string.IsNullOrEmpty(this.DepartingFrom)
+                || this.Duration == 0 || this.DepartureDate == DateTime.MinValue)
+                return false;
+
+            return true;
+        }
     }
 }
